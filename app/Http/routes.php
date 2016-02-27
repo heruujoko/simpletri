@@ -10,11 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('signin');
+Route::group(['middleware' => ['web']],function(){
+  Route::get('/', 'FrontController@signin');
+  Route::post('/signin', 'AuthController@signin');
+  Route::get('/signout', 'AuthController@signout');
 });
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -26,6 +26,6 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['namespace' => 'Console' , 'prefix' => 'console'], function () {
-    Route::get('/' , 'Dashboard@index');
+Route::group(['middleware' => ['web','web.console'], 'namespace' => 'Console' , 'prefix' => 'console'], function () {
+    Route::get('/' , 'DashboardController@index');
 });

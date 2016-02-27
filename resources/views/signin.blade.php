@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Brio Web App - Bootstrap Admin Template</title>
 
 	<meta name="description" content="">
@@ -37,14 +37,27 @@
         	<h3 class="text-center">SimpleTRI<br><small>Sistem Pelayanan Administrasi</small></h3>
             <!-- <p class="text-center">Sign in to get in touch</p> -->
             <hr class="clean">
-        	<form role="form">
+            @if(Session::has('error'))
+               <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <strong>Oops!</strong> {{ Session::get('error') }} 
+               </div> 
+            @elseif(Session::has('info'))
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <strong></strong> {{ Session::get('info') }} 
+               </div> 
+            @else
+            @endif
+        	<form role="form" method="post" action="{{ URL::to('/') }}/signin">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">  
               <div class="form-group input-group">
               	<span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control"  placeholder="NIK">
+                <input name="nik" type="text" class="form-control"  placeholder="NIK">
               </div>
               <div class="form-group input-group">
               	<span class="input-group-addon"><i class="fa fa-key"></i></span>
-                <input type="text" class="form-control"  placeholder="Password">
+                <input type="text" name="password" class="form-control"  placeholder="Password">
               </div>
               <div class="form-group">
                 <label class="cr-styled">
@@ -59,8 +72,6 @@
         </div>
         </div>
     </div>
-
-
 
     <!-- JQuery v1.9.1 -->
 	  <script src="{{ URL::to('/') }}/assets/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>

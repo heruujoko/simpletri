@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('signin');
 });
 
 /*
@@ -26,6 +26,6 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['namespace' => 'Console' , 'prefix' => 'console'], function () {
+    Route::get('/' , 'Dashboard@index');
 });

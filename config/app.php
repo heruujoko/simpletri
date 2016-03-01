@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Szykra\Notifications\NotificationServiceProvider',
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -156,6 +157,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
 
@@ -203,6 +205,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Flash'     => 'Szykra\Notifications\Flash',
+        'Carbon'    => 'Carbon\Carbon',
+        'PDF'       => Barryvdh\DomPDF\Facade::class,
+        'Datatables'=> Yajra\Datatables\Datatables::class,
+
 
     ],
 

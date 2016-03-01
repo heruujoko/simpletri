@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
   function index(){
-    return view('console.dashboard');
+    $data['active'] = 'dashboard';
+    $data['subactive'] = '';
+    return view('console.dashboard',$data);
   }
 }

@@ -26,6 +26,15 @@ Route::group(['middleware' => ['web']],function(){
 |
 */
 
-Route::group(['middleware' => ['web','web.console'], 'namespace' => 'Console' , 'prefix' => 'console'], function () {
+Route::group(['middleware' => ['web' , 'web.console'], 'namespace' => 'Console' , 'prefix' => 'console'], function () {
     Route::get('/' , 'DashboardController@index');
+    Route::get('/stnk' , 'STNKController@index');
+    Route::get('/stnk/data' , 'STNKController@data');
+    Route::get('/stnk/new' , 'STNKController@create');
+    Route::post('/stnk' , 'STNKController@store');
+    Route::get('/stnk/{id}' , 'STNKController@details');
+    Route::get('/stnk/{id}/print' , 'STNKController@printpdf');
+    Route::get('/stnk/{id}/edit' , 'STNKController@edit');
+    Route::post('/stnk/{id}/update' , 'STNKController@update');
+    Route::get('/stnk/{id}/delete' , 'STNKController@destroy');
 });

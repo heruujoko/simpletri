@@ -10,6 +10,7 @@
         "szykra/laravel-flash-notifications": "~0.3",
         "nesbot/carbon": "~1.14",
         "barryvdh/laravel-dompdf": "0.6.*",
+        "servit/l5mpdf": "dev-master",
         "yajra/laravel-datatables-oracle": "~6.0"
     },
     "require-dev": {

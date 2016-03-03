@@ -14,6 +14,7 @@ class CreateStnkTable extends Migration
     {
         Schema::create('stnk' , function(Blueprint $table){
           $table->increments('id');
+          $table->string('nomor_surat');
           $table->string('nomor_polisi');
           $table->string('nama_pemilik');
           $table->text('alamat');
@@ -23,6 +24,8 @@ class CreateStnkTable extends Migration
           $table->string('tahun_perakitan');
           $table->string('isi_silinder');
           $table->string('no_rangka');
+          $table->string('no_mesin');
+          $table->string('ident')->nullable();
           $table->date('tgl_faktur');
           $table->string('bahan_bakar');
           $table->string('warna_tnkb');

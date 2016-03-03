@@ -15,6 +15,12 @@
           <form role="form" method="POST" class="form-horizontal parsley-validate" action="{{ URL::to('/') }}/console/stnk" data-parsley-validate>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
+              <label class="control-label col-md-2">No. Surat</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" name="nomor_surat" data-parsley-required="true" >
+              </div>
+            </div>
+            <div class="form-group">
               <label class="control-label col-md-2">No. Polisi</label>
               <div class="col-md-8">
                 <input type="text" class="form-control" name="nomor_polisi" data-parsley-required="true" >
@@ -65,7 +71,19 @@
             <div class="form-group">
               <label class="control-label col-md-2">Nomor Rangka</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" name="no_rangka" data-parsley-type="integer" data-parsley-required="true" >
+                <input type="text" class="form-control" name="no_rangka" data-parsley-required="true" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">Nomor Mesin</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" name="no_mesin" data-parsley-required="true" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">IDENT</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" name="ident">
               </div>
             </div>
             <div class="form-group">

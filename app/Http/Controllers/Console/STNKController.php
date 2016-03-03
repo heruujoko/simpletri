@@ -46,6 +46,7 @@ class STNKController extends Controller
 
     function store(Request $request){
         $stnk = new STNK;
+        $stnk->nomor_surat = $request->get('nomor_surat');
         $stnk->nomor_polisi = $request->get('nomor_polisi');
         $stnk->nama_pemilik = $request->get('nama_pemilik');
         $stnk->alamat = $request->get('alamat');
@@ -55,6 +56,8 @@ class STNKController extends Controller
         $stnk->tahun_perakitan = $request->get('tahun_perakitan');
         $stnk->isi_silinder = $request->get('isi_silinder');
         $stnk->no_rangka = $request->get('no_rangka');
+        $stnk->no_mesin = $request->get('no_mesin');
+        $stnk->ident = $request->get('ident');
         $stnk->tgl_faktur = Carbon::parse($request->get('tgl_faktur'));
         $stnk->bahan_bakar = $request->get('bahan_bakar');
         $stnk->warna_tnkb = $request->get('warna_tnkb');
@@ -67,6 +70,7 @@ class STNKController extends Controller
 
     function update(Request $request,$id){
         $stnk = STNK::find($id);
+        $stnk->nomor_surat = $request->get('nomor_surat');
         $stnk->nomor_polisi = $request->get('nomor_polisi');
         $stnk->nama_pemilik = $request->get('nama_pemilik');
         $stnk->alamat = $request->get('alamat');
@@ -76,6 +80,8 @@ class STNKController extends Controller
         $stnk->tahun_perakitan = $request->get('tahun_perakitan');
         $stnk->isi_silinder = $request->get('isi_silinder');
         $stnk->no_rangka = $request->get('no_rangka');
+        $stnk->no_mesin = $request->get('no_mesin');
+        $stnk->ident = $request->get('ident');
         $stnk->tgl_faktur = Carbon::parse($request->get('tgl_faktur'));
         $stnk->bahan_bakar = $request->get('bahan_bakar');
         $stnk->warna_tnkb = $request->get('warna_tnkb');
@@ -83,7 +89,7 @@ class STNKController extends Controller
         $stnk->nomor_bpkb = $request->get('nomor_bpkb');
         $stnk->berlaku_sampai = Carbon::parse($request->get('berlaku_sampai'));
         $stnk->save();
-        return redirect('console/stnk'); 
+        return redirect('console/stnk');
     }
 
     function details($id){
@@ -96,7 +102,7 @@ class STNKController extends Controller
     function printpdf($id){
       $data['stnk'] = STNK::find($id);
       $pdf = PDF::loadView('pdf.stnk', $data);
-      $pdf->setPaper([0, 0, 316, 817], 'landscape');
+      $pdf->setPaper([0, 0, 270, 817], 'landscape');
       return $pdf->stream();
     }
 

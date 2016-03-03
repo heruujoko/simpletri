@@ -17,7 +17,7 @@
             <div class="form-group">
               <label class="control-label col-md-2">No. Surat</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" name="nomor_surat" data-parsley-required="true" value="{{ $stnk->no_surat }}">
+                <input type="text" class="form-control" name="nomor_surat" data-parsley-required="true" value="{{ $stnk->nomor_surat }}">
               </div>
             </div>
             <div class="form-group">
